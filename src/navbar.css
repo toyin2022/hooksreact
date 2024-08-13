@@ -1,0 +1,15 @@
+.navbar {
+  height: 12vh;
+  width: 80vw;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.navlink {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  font-size: 1.2rem;
+}

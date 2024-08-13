@@ -1,0 +1,18 @@
+.spinner {
+  background: transparent;
+  animation: spin 2s ease-in-out;
+}
+@keyframes spin {
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(150deg);
+  }
+  75% {
+    transform: rotate(230deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
