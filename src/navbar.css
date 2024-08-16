@@ -1,6 +1,6 @@
 .navbar {
   height: 12vh;
-  width: 80vw;
+  width: 100vw;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.24);
   display: flex;
   align-items: center;
@@ -12,4 +12,91 @@
   list-style: none;
   gap: 2rem;
   font-size: 1.2rem;
+}
+.icon {
+  display: none;
+}
+.cart {
+  position: relative;
+}
+.cartNum {
+  /* padding: 0.1rem; */
+  background-color: purple;
+  color: white;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 12vh;
+    width: 100vw;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    position: relative;
+  }
+  .navlink {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 70%;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.281);
+    top: 10vh;
+    left: 0;
+    font-size: 1.2rem;
+    flex-direction: column;
+    transform: translateX(-300%);
+    transition: all 0.3s ease-in-out;
+  }
+  .menuvisible {
+    transform: translateX(0%);
+  }
+  .navlink li {
+    padding: 1rem;
+  }
+  .icon {
+    display: flex;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 1px solid black;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    justify-content: center;
+    position: relative;
+  }
+  .bars {
+    height: 1px;
+    width: 80%;
+    background: #000;
+    transition: all 0.2s ease-in-out;
+  }
+  .barone {
+    transform: rotate(45deg);
+    position: absolute;
+    width: 100%;
+  }
+  .bartwo {
+    display: none;
+  }
+  .barthree {
+    transform: rotate(-45deg);
+    position: absolute;
+    width: 100%;
+  }
 }

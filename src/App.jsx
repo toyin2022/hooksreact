@@ -1,57 +1,54 @@
-import Navbar from "./Navbar";
-import Button from "./Button";
-import { useState } from "react";
-import myGif from "./assets/loadd.gif";
-import { ImSpinner } from "react-icons/im";
+import "./App.css";
 
-import Load from "./assets/loading.json";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+import SingleProduct from "./components/SingleProduct";
+import Shop from "./components/Shop";
 
 const App = () => {
-  const [bgcolor, setbgcolor] = useState("white");
-  const [loading, setloading] = useState(false);
-  const changeToBlue = () => {
-    setbgcolor("blue");
-  };
-  const changeToRed = () => {
-    setbgcolor("red");
-  };
-  const handleLoading = () => {
-    setloading(true);
-    setTimeout(() => {
-      setloading(false);
-    }, 2000);
-  };
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Homepage />,
+    },
+    {
+      path: "/about",
+      element: <About />,
+    },
+    {
+      path: "/contact",
+      element: <Contact />,
+    },
 
+    {
+      path: "/products/:id",
+      element: <SingleProduct />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
   return (
     <div>
-      <Navbar
-        bgcolor={bgcolor}
-        textcolor={bgcolor === "black" ? "white" : "black"}
-      />
-      <Button label="Blue" color="blue" onClick={changeToBlue} />
-      <Button label="Red" color="red" onClick={changeToRed} />
-      <Button
-        label="Yellow"
-        color="yellow"
-        onClick={() => setbgcolor("yellow")}
-      />
-      <Button label="Green" color="green" onClick={() => setbgcolor("green")} />
-      <Button label="Black" color="black" onClick={() => setbgcolor("black")} />
-      <button
-        style={{ backgroundColor: "orange" }}
-        className="btn"
-        onClick={handleLoading}
-      >
-        load
-        {loading ? (
-          <img width={20} src={myGif} alt="" className="spinner" />
-        ) : (
-          ""
-        )}
-      </button>
-      {/* {loading ? <img src={myGif} alt="" /> : <p>No loader</p>} */}
+      <RouterProvider router={router} />
     </div>
   );
 };
 
 export default App;
+
+// function Timer() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     setTimeout(() => {
+//       setCount((count) => count + 1);
+//     }, 1000);
+//   });
+
+//   return <h1>I've rendered {count} times!</h1>;
+// }
